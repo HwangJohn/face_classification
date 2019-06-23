@@ -8,7 +8,13 @@ def load_image(image_path, grayscale=False, target_size=None):
     return image.img_to_array(pil_image)
 
 def load_detection_model(model_path):
+    """
+        Haar cascade classifier 2001년 Paul viola와 Michael Jones의 논문 'Rapid Object Detection using a Boosted Cascade of Simple Features'에서 제안된 방법
+        예제설명 : http://blog.naver.com/PostView.nhn?blogId=ocllos&logNo=194366766
+        
+    """
     detection_model = cv2.CascadeClassifier(model_path)
+    print(detection_model)
     return detection_model
 
 def detect_faces(detection_model, gray_image_array):
